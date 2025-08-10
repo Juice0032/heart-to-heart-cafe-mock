@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Heart to Heart Cafe</title>
+  <style>
+    /* Reset some defaults */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fff8f0;
+      color: #4b3b2b;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #a56a44;
+      color: white;
+      padding: 1.5rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Georgia', serif;
+      font-weight: normal;
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+    }
+    nav {
+      background-color: #d9b382;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 0.8rem 0;
+      font-weight: bold;
+    }
+    nav a {
+      color: #4b3b2b;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #7f5939;
+    }
+    .hero {
+      position: relative;
+      background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      height: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-shadow: 2px 2px 6px #000;
+      font-size: 2.5rem;
+      font-family: 'Georgia', serif;
+    }
+    .container {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    section {
+      margin-bottom: 3rem;
+    }
+    h2 {
+      font-family: 'Georgia', serif;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      border-bottom: 2px solid #a56a44;
+      padding-bottom: 0.3rem;
+      color: #6b4c2b;
+    }
+    /* Menu */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 1.5rem;
+    }
+    .menu-item {
+      background: #f7e6d1;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 2px 2px 5px rgba(165,106,68,0.3);
+    }
+    .menu-item h3 {
+      margin-bottom: 0.5rem;
+      color: #7f5939;
+    }
+    .menu-item p {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      color: #5a4328;
+    }
+    .menu-item .price {
+      font-weight: bold;
+      color: #a56a44;
+    }
+    /* About */
+    .about-text {
+      font-size: 1.1rem;
+      max-width: 700px;
+    }
+    .about-images {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .about-images img {
+      width: 180px;
+      border-radius: 8px;
+      box-shadow: 2px 2px 5px rgba(165,106,68,0.3);
+    }
+    /* Contact */
+    .contact-info {
+      font-size: 1.1rem;
+      line-height: 1.5;
+      max-width: 400px;
+    }
+    iframe {
+      border: none;
+      width: 100%;
+      max-width: 400px;
+      height: 250px;
+      margin-top: 1rem;
+      border-radius: 8px;
+      box-shadow: 2px 2px 5px rgba(165,106,68,0.3);
+    }
+    /* Place Order Form */
+    form {
+      background: #f7e6d1;
+      padding: 1.5rem;
+      border-radius: 8px;
+      max-width: 600px;
+      box-shadow: 2px 2px 8px rgba(165,106,68,0.4);
+    }
+    form label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+      color: #6b4c2b;
+    }
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 0.6rem;
+      margin-bottom: 1rem;
+      border: 1px solid #a56a44;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-family: inherit;
+      resize: vertical;
+    }
+    form textarea {
+      min-height: 80px;
+    }
+    form button {
+      background-color: #a56a44;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.6rem;
+      font-size: 1.1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    form button:hover {
+      background-color: #7f5939;
+    }
+    /* Footer */
+    footer {
+      background-color: #a56a44;
+      color: white;
+      text-align: center;
+      padding: 1rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 480px) {
+      .hero {
+        font-size: 1.8rem;
+        height: 220px;
+      }
+      nav {
+        gap: 1rem;
+      }
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+      .about-images img {
+        width: 100%;
+      }
+      iframe {
+        max-width: 100%;
+      }
+      form {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Heart to Heart Cafe</h1>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#menu">Menu</a>
+  <a href="#about">About Us</a>
+  <a href="#contact">Contact</a>
+  <a href="#order">Place Order</a>
+</nav>
+
+<section class="hero" id="home">
+  Your cozy spot for great coffee & friendly vibes
+</section>
+
+<div class="container">
+  <section id="menu">
+    <h2>Our Menu</h2>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <h3>Classic Cappuccino</h3>
+        <p>Rich espresso with steamed milk and foam.</p>
+        <div class="price">R25</div>
+      </div>
+      <div class="menu-item">
+        <h3>Freshly Baked Croissant</h3>
+        <p>Flaky, buttery croissant straight from the oven.</p>
+        <div class="price">R18</div>
+      </div>
+      <div class="menu-item">
+        <h3>Avocado Toast</h3>
+        <p>Whole grain bread topped with fresh smashed avocado.</p>
+        <div class="price">R35</div>
+      </div>
+      <div class="menu-item">
+        <h3>Homemade Carrot Cake</h3>
+        <p>Moist carrot cake with cream cheese frosting.</p>
+        <div class="price">R30</div>
+      </div>
+      <div class="menu-item">
+        <h3>Espresso Shot</h3>
+        <p>Strong, bold espresso for the purists.</p>
+        <div class="price">R15</div>
+      </div>
+      <div class="menu-item">
+        <h3>Herbal Tea Selection</h3>
+        <p>Choose from chamomile, mint, or rooibos.</p>
+        <div class="price">R20</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p class="about-text">
+      Heart to Heart Cafe is your neighborhood haven for fresh coffee, tasty bites, and warm smiles.  
+      We pride ourselves on creating a welcoming space where everyone feels at home. Using only fresh, local ingredients, our menu is crafted to brighten your day and fuel your passions.
+    </p>
+    <div class="about-images">
+      <img src="Cafe-Interia.png" alt="Heart to Heart Cafe Photo" />
+      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Coffee cup" />
+      <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=400&q=80" alt="Cafe food" />
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact & Location</h2>
+    <div class="contact-info">
+      <p><strong>Address:</strong> 123 Main Street, Your Town</p>
+      <p><strong>Phone:</strong> +27 12 345 6789</p>
+      <p><strong>Email:</strong> info@hearttoheartcafe.co.za</p>
+      <p><strong>Hours:</strong> Mon-Fri 7am - 6pm | Sat-Sun 8am - 4pm</p>
+    </div>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3304.123456789!2d27.9123456!3d-26.204135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e9508a8cbb8a93f%3A0x8f5b3bfa2a254a0d!2sYour%20Town!5e0!3m2!1sen!2sza!4v1234567890"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Heart to Heart Cafe Location"
+    ></iframe>
+  </section>
+
+  <section id="order">
+    <h2>Place Your Order</h2>
+    <form id="orderForm">
+      <label for="name">Name *</label>
+      <input type="text" id="name" name="name" required placeholder="Your full name" />
+
+      <label for="email">Email *</label>
+      <input type="email" id="email" name="email" required placeholder="you@example.com" />
+
+      <label for="phone">Phone *</label>
+      <input type="tel" id="phone" name="phone" required placeholder="+27 123 456 7890" />
+
+      <label for="details">Order Details *</label>
+      <textarea id="details" name="details" required placeholder="What would you like to order?"></textarea>
+
+      <button type="submit">Submit Order</button>
+    </form>
+  </section>
+</div>
+
+<footer>
+  &copy; 2025 Heart to Heart Cafe — Crafted with care by GoRunSA Tech Services
+</footer>
+
+<script>
+  document.getElementById('orderForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    // Basic validation is done by HTML5 required attribute
+    alert('Thank you for your order! We will contact you shortly.');
+    this.reset();
+  });
+</script>
+
+</body>
+</html>
